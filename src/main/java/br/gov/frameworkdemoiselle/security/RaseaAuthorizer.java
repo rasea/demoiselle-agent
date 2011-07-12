@@ -44,13 +44,13 @@ import br.gov.frameworkdemoiselle.annotation.Strategy;
 
 @Alternative
 @SessionScoped
-public class RaseaAuthorizator implements Authorizator {
+public class RaseaAuthorizer implements Authorizer {
 
 	private static final long serialVersionUID = 1L;
 
 	@Inject
 	@Strategy
-	private Authorizator delegate;
+	private Authorizer delegate;
 
 	@Override
 	public boolean hasRole(String role) {

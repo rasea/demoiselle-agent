@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import br.gov.frameworkdemoiselle.config.ApplicationConfig;
 import br.gov.frameworkdemoiselle.exception.RaseaException;
 import br.gov.frameworkdemoiselle.security.Application;
-import br.gov.frameworkdemoiselle.security.Authorizator;
+import br.gov.frameworkdemoiselle.security.Authorizer;
 import br.gov.frameworkdemoiselle.security.Operation;
 import br.gov.frameworkdemoiselle.security.Permission;
 import br.gov.frameworkdemoiselle.security.RaseaContext;
@@ -19,7 +19,7 @@ import br.gov.frameworkdemoiselle.security.Role;
 
 @Mode
 @SessionScoped
-public class LoadRaseaAuthorizator implements Authorizator {
+public class LoadRaseaAuthorizer implements Authorizer {
 
 	private static final long serialVersionUID = 1L;
 

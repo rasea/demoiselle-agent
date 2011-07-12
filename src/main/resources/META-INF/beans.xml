@@ -39,7 +39,7 @@
 
 	<alternatives>
 		<class>br.gov.frameworkdemoiselle.security.RaseaAuthenticator</class>
-		<class>br.gov.frameworkdemoiselle.security.RaseaAuthorizator</class>
+		<class>br.gov.frameworkdemoiselle.security.RaseaAuthorizer</class>
 	</alternatives>
 	
 </beans>
