@@ -13,13 +13,13 @@ import javax.inject.Inject;
 import br.gov.frameworkdemoiselle.config.RaseaAgentConfig;
 import br.gov.frameworkdemoiselle.event.AfterLoginSuccessful;
 import br.gov.frameworkdemoiselle.exception.RaseaException;
-import br.gov.frameworkdemoiselle.security.Authorizator;
+import br.gov.frameworkdemoiselle.security.Authorizer;
 import br.gov.frameworkdemoiselle.security.Permission;
 import br.gov.frameworkdemoiselle.security.RaseaContext;
 
 @Mode
 @SessionScoped
-public class DefaultRaseaAuthorizator implements Authorizator {
+public class DefaultRaseaAuthorizer implements Authorizer {
 
 	private static final long serialVersionUID = 1L;
 
