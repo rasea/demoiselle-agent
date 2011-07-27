@@ -56,7 +56,7 @@
 				<configuration>
 					<extension>true</extension>
 					<sourceDestDir>src/main/java</sourceDestDir>
-					<packageName>br.gov.frameworkdemoiselle.internal.proxy</packageName>
+					<packageName>org.rasea.agent.demoiselle.internal.proxy</packageName>
 				</configuration>
 				<dependencies>
 					<dependency>

@@ -22,8 +22,8 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/beans_1_1.xsd">
 
 	<alternatives>
-		<class>br.gov.frameworkdemoiselle.security.RaseaAuthenticator</class>
-		<class>br.gov.frameworkdemoiselle.security.RaseaAuthorizer</class>
+		<class>org.rasea.agent.demoiselle.security.RaseaAuthenticator</class>
+		<class>org.rasea.agent.demoiselle.security.RaseaAuthorizer</class>
 	</alternatives>
 	
 </beans>
