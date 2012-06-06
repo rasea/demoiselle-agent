@@ -20,6 +20,7 @@
  */
 package org.rasea.agent.demoiselle.security;
 
+import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
@@ -33,6 +34,7 @@ import br.gov.frameworkdemoiselle.security.Authenticator;
 import br.gov.frameworkdemoiselle.security.User;
 
 @Alternative
+@SessionScoped
 public class RaseaAuthenticator implements Authenticator {
 
 	private static final long serialVersionUID = 1L;
@@ -45,16 +47,16 @@ public class RaseaAuthenticator implements Authenticator {
 
 	@Inject
 	private RaseaCredentialImpl credential;
+	
+	private boolean authenticated = false;
 
 	@Override
 	public boolean authenticate() {
-		boolean result = false;
-
 		try {
 			if (config.getMode() == ModeType.MOCK) {
-				result = true;
+				authenticated = true;
 			} else {
-				result = service.get().authenticate();
+				authenticated = service.get().authenticate();
 			}
 
 		} catch (RaseaException e) {
@@ -62,13 +64,14 @@ public class RaseaAuthenticator implements Authenticator {
 			e.printStackTrace();
 		}
 
-		return result;
+		return authenticated;
 	}
 
 	@Override
 	public void unAuthenticate() {
 		credential.setUsername(null);
 		credential.setPassword(null);
+		authenticated = false;
 	}
 
 	@Override
@@ -76,7 +79,7 @@ public class RaseaAuthenticator implements Authenticator {
 		User user = null;
 
 		try {
-			if (config.getMode() == ModeType.MOCK) {
+			if (authenticated && config.getMode() == ModeType.MOCK) {
 				user = new User() {
 
 					private static final long serialVersionUID = 1L;
@@ -95,10 +98,9 @@ public class RaseaAuthenticator implements Authenticator {
 					public void setAttribute(Object key, Object value) {
 					}
 				};
-			} else {
+			} else if(authenticated) {
 				user = service.get().getUser(credential.getUsername());
 			}
-			
 
 		} catch (RaseaException e) {
 			// TODO Colocar uma mensagem amigável para o programador saber o que ocorreu.
